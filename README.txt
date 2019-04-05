@@ -19,8 +19,9 @@ Functions "loadDataset" and "loadAction" allow the user to load and save the Coo
 Syntax:
 	- loadDataset(folder, 'training') and loadDataset(folder, 'test') load MoCap data of all 
 		actions for the specified set.
-	- loadAction(folder, action) and loadAction(folder, action, 'ALL') return a struct containing 
-		data of all markers for the specified action.
+	- loadAction(folder, action) and loadAction(folder, action, 'ALL') return a struct containing data of all markers for
+		the specified action. Notice that "action" is a string that can be derived from the names of the data files.
+		Example: carrot_tr.mat -> carrot
 	- loadAction(folder, action, marker) returns a struct containing data related to the specified action and limited to
 		the specified marker  
 	- loadAction(folder, action, 'ALL', instance) returns a struct containing data of all markers 
