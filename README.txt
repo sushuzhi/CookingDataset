@@ -37,5 +37,8 @@ Three types of visualisation functions are available:
 	
 The user can find the list of the actions and a numerical description of the dataset in tabella.ods.
 	
-
+REFERENCE
+=========
+Should you use this dataset in your publication please cite the following:
+D. Malafronte, G.Goyal, A.Vignolo. F.Odone, N.Noceti. Investigating the use of space-time primitives to understand human movements. In ICIAP 2017
 
