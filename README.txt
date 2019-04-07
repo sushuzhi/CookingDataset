@@ -1,32 +1,45 @@
-Loading and visualisation functions for Cooking Dataset: this software allows users to access 
-RGB and Kinematic streams.
+THE COOKING ACTIONS DATASET: DESCRIPTION AND MOTIVATIONS
+========================================================
 
-Functions loadDataset and loadAction allow the user to load and save the Cooking Dataset in a 
-different setting with respect to the structures provided with this code. LoadAction will give 
-the user the possibility to load only part of the Cooking Dataset by specifying and action, a 
-marker, or an instance.
+The Cooking Actions Dataset is a multimodal dataset in which we collect MoCap data and video sequences acquired from multiple views of upper body actions in a cooking scenario. 
+It has been collected with the specific purpose of investigating view-invariant action properties in both biological and artificial systems, and in this sense it may be of interest for multiple research communities in the cognitive and computational domains. Beside addressing classical action recognition tasks, the dataset enables research on different nuances of action understanding, from the segmentation of action primitives robust across different sensors and viewpoints, to the detection of actions categories depending on their dynamic evolution or the goal. 
+
+The dataset includes 20 cooking actions involving one or two arms of a volunteer, some of them including tools which may require different forces. Three different view-points have been considered for the acquisitions, i.e. lateral, egocentric, and frontal. For each action a training and a test sequence is available, containing each 20 repetitions of the action. Furthermore, acquisitions of more structured activities (we called scenes) are included, in which the actions are performed in sequence for a final, more complex goal. 
+
+An annotation is available, which includes the segmentation of single action instances in terms of time instants in the MOCAP reference frame. A function then allows to map the time instants on the corresponding frame in the video sequences. In addition, functionalities to load, segment, and visualize the data are also provided, as described in the following. 
+
+FUNCTIONS
+=========
+
+Loading and visualisation functions (in MATLAB) allow users to access RGB and Kinematic streams.
+
+Functions "loadDataset" and "loadAction" allow the user to load and save the Cooking Actions Dataset in an easy-to-use data structure. 
+"loadAction" gives the user the possibility of loading only part of the Cooking Actions Dataset, as for instance an action, a marker, or an instance.
 
 Syntax:
-	- loadDataset(folder, 'training') and loadDataset(folder, 'test') will group MoCap data of all 
-		actions for the set indicated into one single structure.
-	- loadAction(folder, action) and loadAction(folder, action, 'ALL') return a struct containing 
-		data of all markers for the action specified.
-	- loadAction(folder, action, marker) returns a struct containing data of the marker specified 
-		for the action in 'action'.
+	- loadDataset(folder, 'training') and loadDataset(folder, 'test') load MoCap data of all 
+		actions for the specified set.
+	- loadAction(folder, action) and loadAction(folder, action, 'ALL') return a struct containing data of all markers for
+		the specified action. Notice that "action" is a string that can be derived from the names of the data files.
+		Example: carrot_tr.mat -> carrot
+	- loadAction(folder, action, marker) returns a struct containing data related to the specified action and limited to
+		the specified marker  
 	- loadAction(folder, action, 'ALL', instance) returns a struct containing data of all markers 
 		at the specified instance of  the action.
 	- loadAction(folder, action, marker, instance) returns a struct containing data of a single 
-		marker at the specifies instance of the action.
+		marker at the specified instance of the action.
 
-The function segmentAction will extract the single instances of action from the complete MoCap 
-streams. Same function can be used to segment the scenes in different actions.
+The function "segmentAction" extracts the instances of actions from the  MoCap streams. Same function can be used to segment the scenes in different actions.
 
 Three types of visualisation functions are available:
-	- visualiseAction, for 3D plot of each marker's trajectory 
-	- visualiseSkeleton, for a simulation of the arm executing the complete action using MoCap data
-	- initSynch and synchronizedView for a joint view of RGB and Kinematic data
+	- "visualiseAction", for 3D plot of each marker's trajectory 
+	- "visualiseSkeleton", for a simulation of the arm executing the complete action using MoCap data
+	- "initSynch" and "synchronizedView" for a joint view of RGB and Kinematic data
 	
 The user can find the list of the actions and a numerical description of the dataset in tabella.ods.
 	
-
+REFERENCE
+=========
+Should you use this dataset in your publication please cite the following:
+D. Malafronte, G.Goyal, A.Vignolo. F.Odone, N.Noceti. Investigating the use of space-time primitives to understand human movements. In ICIAP 2017
 
