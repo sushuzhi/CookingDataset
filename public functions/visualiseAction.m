@@ -28,7 +28,11 @@ function visualiseAction(segmentedfile, instance)
             subplot(2,3,i)
             for j = 1:size(variables,1)
                 mocap = file.(variables{j});
-                markers = fields(mocap);
+                if ~strcmp(variables{j}, 'labels')
+                    markers = fields(mocap);
+                else
+                    continue;
+                end
                 act = mocap.(cell2mat(markers(i)));
                 plot3(act(:,1), act(:,2), act(:,3), colours{i});
                 hold all
@@ -48,6 +52,13 @@ function visualiseAction(segmentedfile, instance)
         end
         mocap = file.(variables{instance});
         markers = fields(mocap);
+        if isfield(file, 'labels')
+            labels = file.labels;
+            nameAct = upper(char(labels(instance)))
+        else
+            nameAct = '';
+        end
+            
         figure
         for i = 1:6
             subplot(2,3,i)
@@ -59,7 +70,7 @@ function visualiseAction(segmentedfile, instance)
             ylabel('y');
             zlabel('z');
             view(3);
-            title(joints(i));
+            title(strcat(joints(i),' (', nameAct, ')'));
         end
     end
     

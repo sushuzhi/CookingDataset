@@ -29,8 +29,12 @@ function [struct] = segmentAction(filename)
     ind = file.index;
     
     nameStruct = strcat(nome, '_instances', '.mat');
-    action = matfile(nameStruct, 'Writable', true);
-    
+    action = matfile(lower(nameStruct), 'Writable', true);
+    % Annotation of the scene files
+    if isfield(file, 'labels')
+        action.labels = file.labels;
+    end
+   
     num = 1;
     for i = 2:length(ind)
         instance.IND = file.IND(ind(i-1):ind(i), :);
@@ -47,7 +51,7 @@ function [struct] = segmentAction(filename)
         end
         num = num+1;
     end
-   
+    
     struct = load(nameStruct);
     fprintf('File %s saved.\n', nameStruct);
 end

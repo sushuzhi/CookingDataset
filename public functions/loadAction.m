@@ -36,15 +36,26 @@ function [data] = loadAction(folder, action, varargin)
     % if it does, comment line 37
     folder = strcat(folder,'/');
     mode = strsplit(folder, '/');
+    if(~strcmp(mode(end-1),'training') || ~strcmp(mode(end-1), 'test'))
+        mode = '';
+    else
+        mode = strcat('_',char(mode(end-1)));
+    end
     
     % Load the complete action
-    if(isempty(varargin) || (size(varargin,2) == 1 && strcmp(char(varargin{1}), 'ALL')))
+    if(isempty(varargin) || (size(varargin,2) == 1 && strcmp(char(upper(varargin{1})), 'ALL')))
         filename = dir(strcat(folder,'*',lower(action),'*.mat'));
         file = load(strcat(folder,filename.name));
         
-        nameStruct = strcat(lower(action),'_', char(mode(end-1)), '.mat');
+        nameStruct = strcat(lower(action),mode, '.mat');
         actionStruct = matfile(nameStruct, 'Writable', true);
         
+        % Annotation of the scene files
+        if isfield(file, 'labels')
+            actionStruct.labels = file.labels;
+            actionStruct.index = file.index;
+        end
+
         actionStruct.IND = file.IND(:,:);
         actionStruct.PALM = file.PALM(:,:);
         actionStruct.LIT = file.LIT(:, :);
@@ -62,10 +73,15 @@ function [data] = loadAction(folder, action, varargin)
         
         % Load a specific marker of the action
         if(size(varargin,2)==1)
-            nameStruct = strcat(lower(action),'_', lower(marker), '_', char(mode(end-1)), '.mat');
+            nameStruct = strcat(lower(action),'_', lower(marker), mode, '.mat');
             actionStruct = matfile(nameStruct, 'Writable', true);
 
             actionStruct.(marker) = file.(marker);
+            % Annotation of the scene files
+            if isfield(file, 'labels')
+                actionStruct.labels = file.labels;
+                actionStruct.index = file.index;
+            end
         
         % Load a specific instance of the action
         elseif(size(varargin,2)==2)
@@ -74,8 +90,14 @@ function [data] = loadAction(folder, action, varargin)
                     
             if(i < (size(ind,2)-1))
                 if(strcmp(marker,'ALL'))
-                    nameStruct = strcat(lower(action),'_',int2str(i),'.mat');
+                    nameStruct = strcat(lower(action),'_instance',int2str(i),'.mat');
                     actionStruct = matfile(nameStruct, 'Writable', true);
+                    
+                    % Annotation of the scene files
+                    if isfield(file, 'labels')
+                        labels = file.labels;
+                        actionStruct.labels = char(labels(i));
+                    end
             
                     actionStruct.IND = file.IND(ind(i):ind(i+1), :);
                     actionStruct.PALM = file.PALM(ind(i):ind(i+1), :);
@@ -84,9 +106,15 @@ function [data] = loadAction(folder, action, varargin)
                     actionStruct.ELBOW = file.ELBOW(ind(i):ind(i+1), :);
                     actionStruct.SHOULDER = file.SHOULDER(ind(i):ind(i+1), :);
                 else
-                    nameStruct = strcat(lower(action),'_',lower(marker),int2str(i),'_', char(mode(end-1)), '.mat');
+                    nameStruct = strcat(lower(action),'_',lower(marker),'_instance',int2str(i), mode, '.mat');
                     actionStruct = matfile(nameStruct, 'Writable', true);
                     actionStruct.(marker) = file.(marker)(ind(i):ind(i+1),:);
+                    % Annotation of the scene files
+                    if isfield(file, 'labels')
+                        labels = file.labels;
+                        actionStruct.labels = char(labels(i));
+                    end
+            
                 end
             end
         end
