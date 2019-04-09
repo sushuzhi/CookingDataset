@@ -36,7 +36,7 @@ Three types of visualisation functions are available:
 	- "visualiseSkeleton", for a simulation of the arm executing the complete action using MoCap data
 	- "initSynch" and "synchronizedView" for a joint view of RGB and Kinematic data
 	
-The user can find the list of the actions and a numerical description of the dataset in tabella.ods.
+The user can find the list of the actions and a numerical description of the dataset in file data.pdf.
 	
 REFERENCE
 =========
