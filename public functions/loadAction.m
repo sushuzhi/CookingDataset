@@ -1,5 +1,5 @@
 function [data] = loadAction(folder, action, varargin)
-% loadData --- loads the MoCap streams of an action specified by the user.
+% LOADACTION --- loads the MoCap streams of an action specified by the user.
 %              
 %              Input: 
 %                   - folder: path of the folder in which mat structures 
@@ -22,20 +22,21 @@ function [data] = loadAction(folder, action, varargin)
 % Example of use:
 % folder = '../cooking dataset/data/training/';
 % action = 'dish';
-%  - loadAction(folder, action) and loadAction(folder, action, 'ALL') 
+%  - LOADACTION(folder, action) and loadAction(folder, action, 'ALL') 
 % return a struct containing data of all markers for the action specified.
-%  - loadAction(folder, action, marker) returns a struct containing data of
+%  - LOADACTION(folder, action, marker) returns a struct containing data of
 % the marker specified for the action in 'action'.
-%  - loadAction(folder, action, 'ALL', instance) returns a struct 
+%  - LOADACTION(folder, action, 'ALL', instance) returns a struct 
 % containing data of all markers at the specified instance of  the action.
-%  - loadAction(folder, action, marker, instance) returns a struct 
+%  - LOADACTION(folder, action, marker, instance) returns a struct 
 % containing data of a single marker at the specifies instance of the
 % action.
 %
-    % check if the folder path ends in '/' or not
-    % if it does, comment line 37
     folder = strcat(folder,'/');
     mode = strsplit(folder, '/');
+    % check if the folder path ends in '/' or not
+    % if it does, comment line 35
+    
     if(~strcmp(mode(end-1),'training') || ~strcmp(mode(end-1), 'test'))
         mode = '';
     else

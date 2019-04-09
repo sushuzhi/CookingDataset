@@ -1,5 +1,5 @@
 function [data] = loadDataset(folder, mode)
-% loadData --- loads and saves (training or test set) of the cooking 
+% LOADDATASET --- loads and saves (training or test set) of the cooking 
 %              dataset in a structure.
 %              Input: 
 %                   - folder: path of the folder in which mat structures 
@@ -15,9 +15,9 @@ function [data] = loadDataset(folder, mode)
 %
 % Example of use:
 % folder_tr = '../cooking dataset/data/training/';
-% training = loadDataset(folder_tr, 'training');
+% training = LOADDATASET(folder_tr, 'training');
 % folder_te = '../cooking dataset/data/test/';
-% test = loadDataset(folder_te, 'test');
+% test = LOADDATASET(folder_te, 'test');
 %
 % The MatFile object saved will have one field for each action contained in
 % the dataset and in each one of them the user can find MoCap streams for all the

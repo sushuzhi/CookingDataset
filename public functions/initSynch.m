@@ -1,5 +1,5 @@
 function [vid, mocap, startMocap, startVid, pov] = initSynch(action, mode, pov, mocap_folder, video_folder)
-% initSynch --- function that fetch video and mocap and the respective points of synchronization
+% INITSYNCH --- function that fetch video and mocap and the respective points of synchronization
 %                       Input:
 %                           - action: name of the action
 %                           - mode: indicates if the action belongs to the
@@ -26,13 +26,12 @@ function [vid, mocap, startMocap, startVid, pov] = initSynch(action, mode, pov, 
 % mocap_folder = '../cooking dataset/data/mocap/training';
 % video_folder = '../cooking dataset/data/video/training';
 % [vid, mocap, startMocap, startVid, pov] = 
-%           initSynch('carrot', 'tr', 0, mocap_folder, video_folder);
+%           INITSYNCH('carrot', 'tr', 0, mocap_folder, video_folder);
 %
 % Use the output as input for the function synchronizedView to visualize
 % video and skeleton in parallel.
-%
-% synchronizedView(vid, mocap, startMocap, startVide, pov);
-%
+% SYNCHRONIZEDVIEW(vid, mocap, startMocap, startVide, pov);
+
 
     table = readtable('synch_index.csv');
     synch = table2cell(table);

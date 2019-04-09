@@ -1,5 +1,5 @@
 function [struct] = segmentAction(filename)
-% segmentAction --- takes in input the complete stream of an action and 
+% SEGMENTACTION --- takes in input the complete stream of an action and 
 %                   separates it into instances. The user can use this 
 %                   function to segment Scene files.
 %
@@ -18,7 +18,7 @@ function [struct] = segmentAction(filename)
 %                   
 % Example of use:
 % action = '../cooking dataset/data/training/carrot_tr.mat';
-% segmentAction(action);
+% SEGMENTACTION(action);
 %
 % The MatFile object saved will have one variable for each single instance
 % of the action, in every variable the user can find MoCap data for all the

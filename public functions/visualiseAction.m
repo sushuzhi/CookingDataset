@@ -1,5 +1,5 @@
 function visualiseAction(segmentedfile, instance)
-% visualiseAction --- plots the trajectories of all the joints.
+% VISUALISEACTION --- plots the trajectories of all the joints.
 %                     
 %                    Input:
 %                       - segmentedfile: path of the struct obtained by the 
@@ -13,9 +13,9 @@ function visualiseAction(segmentedfile, instance)
 % 
 % Example of use:
 % action = '../cooking dataset/data/training/carrot_tr.mat';
-% segmentAction(action);
+% SEGMENTACTION(action);
 % carrot = 'carrot_tr_instances.mat'; 
-% visualiseAction(carrot, 'all');
+% VISUALISEACTION(carrot, 'all');
 %
     file = load(segmentedfile);
     variables = fields(file);

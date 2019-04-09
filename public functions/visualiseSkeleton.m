@@ -1,5 +1,5 @@
 function visualiseSkeleton(filename)
-% visualiseSkeleton --- simulates the arm movement in time.
+% VISUALISESKELETON --- simulates the arm movement in time.
 %                     Input:
 %                       - filename: path of the mat structure of the action
 %                      
@@ -9,7 +9,7 @@ function visualiseSkeleton(filename)
 % 
 % Example of use:
 % filename = '../cooking dataset/data/training/carrot_tr.mat';
-% visualiseSkeleton(filename);
+% VISUALISESKELETON(filename);
 %
     
     file = load(filename);

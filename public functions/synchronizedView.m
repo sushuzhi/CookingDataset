@@ -1,5 +1,5 @@
 function synchronizedView(vid, mocap, startMocap, startVid, pov)
-% synchronizedView --- function that visualize an action in synch from video and from skeleton data
+% SYNCHRONIZEDVIEW --- function that visualize an action in synch from video and from skeleton data
 %                       Input:
 %                           - vid: a VideoReader object
 %                           - mocap: the stream of motion capture data
@@ -11,8 +11,8 @@ function synchronizedView(vid, mocap, startMocap, startVid, pov)
 % mocap_folder = '../mocap/training';
 % video_folder = '../video/training';
 % [vid, mocap, startMocap, startVid] = 
-%           initSynch('carrot', 'tr', 0, mocap_folder, video_folder);
-% synchronizedView(vid, mocap, startMocap, startVid);
+%           INITSYNCH('carrot', 'tr', 0, mocap_folder, video_folder);
+% SYNCHRONIZEDVIEW(vid, mocap, startMocap, startVid);
 %    
     
     palm = double(mocap.PALM(:,:));
