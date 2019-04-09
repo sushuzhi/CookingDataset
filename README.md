@@ -17,28 +17,22 @@ Functions "loadDataset" and "loadAction" allow the user to load and save the Coo
 "loadAction" gives the user the possibility of loading only part of the Cooking Actions Dataset, as for instance an action, a marker, or an instance.
 
 Syntax:
-	* loadDataset(folder, 'training') and loadDataset(folder, 'test') load MoCap data of all 
-		actions for the specified set.
-	* loadAction(folder, action) and loadAction(folder, action, 'ALL') return a struct containing data of all markers for
-		the specified action. Notice that "action" is a string that can be derived from the names of the data files.
-		Example: carrot_tr.mat -> carrot
-	* loadAction(folder, action, marker) returns a struct containing data related to the specified action and limited to
-		the specified marker  
-	* loadAction(folder, action, 'ALL', instance) returns a struct containing data of all markers 
-		at the specified instance of  the action.
-	* loadAction(folder, action, marker, instance) returns a struct containing data of a single 
-		marker at the specified instance of the action.
+- loadDataset(folder, 'training') and loadDataset(folder, 'test') load MoCap data of all actions for the specified set.
+- loadAction(folder, action) and loadAction(folder, action, 'ALL') return a struct containing data of all markers for the specified action. Notice that "action" is a string that can be derived from the names of the data files. Example: carrot_tr.mat -> carrot
+- loadAction(folder, action, marker) returns a struct containing data related to the specified action and limited to the specified marker  
+- loadAction(folder, action, 'ALL', instance) returns a struct containing data of all markers at the specified instance of  the action.
+- loadAction(folder, action, marker, instance) returns a struct containing data of a single marker at the specified instance of the action.
 
 The function "segmentAction" extracts the instances of actions from the  MoCap streams. Same function can be used to segment the scenes in different actions.
 
 Three types of visualisation functions are available:
-	* "visualiseAction", for 3D plot of each marker's trajectory 
-	* "visualiseSkeleton", for a simulation of the arm executing the complete action using MoCap data
-	* "initSynch" and "synchronizedView" for a joint view of RGB and Kinematic data.
+- "visualiseAction", for 3D plot of each marker's trajectory 
+- "visualiseSkeleton", for a simulation of the arm executing the complete action using MoCap data
+- "initSynch" and "synchronizedView" for a joint view of RGB and Kinematic data.
 	
 All the functions provided can be used also on the test scenes in /data/mocap/scenes.
 
-Type help *name of the function* in the Command Window for more information on syntax and on how to use the functions.
+Type help "name of the function" in the Command Window for more information on syntax and on how to use the functions.
 	
 The user can find the list of the actions and a numerical description of the dataset in file data.pdf.
 	
