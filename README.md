@@ -13,7 +13,7 @@ TECHNICAL INFORMATION
 
 MATLAB structures containing the MoCap streams are composed by the following fields:
 - Shoulder, elbow, wrist, palm, index finger and little finger complete streams, without any filtering; 
--index, array containing segmentation indices, this is the information used in segmentAction to separate the streams;
+- index, array containing segmentation indices, this is the information used in segmentAction to separate the streams;
 - labels (present only in the scenes structures), array containing the labels of the actions that succeed one another in the scene (in temporal order). True labels include also \enquote{pause}, a moment in the sequence in which the actor does not move;
 
 The point of view of the video recordings is specified by the number at the end of each filename: 
