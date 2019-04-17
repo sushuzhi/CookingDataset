@@ -9,7 +9,7 @@ The dataset includes 20 cooking actions involving one or two arms of a volunteer
 An annotation is available, which includes the segmentation of single action instances in terms of time instants in the MOCAP reference frame. A function then allows to map the time instants on the corresponding frame in the video sequences. In addition, functionalities to load, segment, and visualize the data are also provided, as described in the following. 
 
 TECHNICAL INFORMATION
-=========
+=====================
 
 MATLAB structures containing the MoCap streams are composed by the following fields:
 - Shoulder, elbow, wrist, palm, index finger and little finger complete streams, without any filtering; 
