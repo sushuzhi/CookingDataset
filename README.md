@@ -8,6 +8,19 @@ The dataset includes 20 cooking actions involving one or two arms of a volunteer
 
 An annotation is available, which includes the segmentation of single action instances in terms of time instants in the MOCAP reference frame. A function then allows to map the time instants on the corresponding frame in the video sequences. In addition, functionalities to load, segment, and visualize the data are also provided, as described in the following. 
 
+TECHNICAL INFORMATION
+=========
+
+MATLAB structures containing the MoCap streams are composed by the following fields:
+- Shoulder, elbow, wrist, palm, index finger and little finger complete streams, without any filtering; 
+-index, array containing segmentation indices, this is the information used in segmentAction to separate the streams;
+- labels (present only in the scenes structures), array containing the labels of the actions that succeed one another in the scene (in temporal order). True labels include also \enquote{pause}, a moment in the sequence in which the actor does not move;
+
+The point of view of the video recordings is specified by the number at the end of each filename: 
+- "*_0.avi" lateral PoV;
+- "*_1.avi" egocentric PoV;
+- "*_2.avi" frontal PoV;
+
 FUNCTIONS
 =========
 
