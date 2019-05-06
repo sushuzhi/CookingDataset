@@ -1,6 +1,6 @@
 MOChA Dataset: MultimOdal Cooking Actions
 ========================================================
-**Description and motivations**
+####Description and motivations
 The Cooking Actions Dataset is a multimodal dataset in which we collect MoCap data and video sequences acquired from multiple views of upper body actions in a cooking scenario. 
 It has been collected with the specific purpose of investigating view-invariant action properties in both biological and artificial systems, and in this sense it may be of interest for multiple research communities in the cognitive and computational domains. Beside addressing classical action recognition tasks, the dataset enables research on different nuances of action understanding, from the segmentation of action primitives robust across different sensors and viewpoints, to the detection of actions categories depending on their dynamic evolution or the goal. 
 
@@ -8,7 +8,7 @@ The dataset includes 20 cooking actions involving one or two arms of a volunteer
 
 An annotation is available, which includes the segmentation of single action instances in terms of time instants in the MOCAP reference frame. A function then allows to map the time instants on the corresponding frame in the video sequences. In addition, functionalities to load, segment, and visualize the data are also provided, as described in the following. 
 
-**Technical information**
+####Technical information
 MATLAB structures containing the MoCap streams are composed by the following fields:
 - Shoulder, elbow, wrist, palm, index finger and little finger complete streams, without any filtering; 
 - index, array containing segmentation indices, this is the information used in segmentAction to separate the streams;
@@ -19,7 +19,7 @@ The point of view of the video recordings is specified by the number at the end 
 - "*_1.avi" egocentric PoV;
 - "*_2.avi" frontal PoV;
 
-**List of the actions included**
+####List of the actions included
 1. Shredding a carrot 
 2. Cutting the bread
 3. Cleaning a dish 
@@ -41,16 +41,15 @@ The point of view of the video recordings is specified by the number at the end 
 19. Cleaning the table 
 20. Transporting an object
 
-**Scenes description**
+####Scenes description
 - Scene #1 The actor mixes ingredients in a bowl, then adds salt and pours some water. Finally the ingredients are mixed again.
 - Scene #2 The actor reaches a slice of cheese, grabs it and shreds it. Then the actor moves the cheese back to the original position.
 - Scene #3 The actor reaches a bottle, moves it and removes the cap. Some water is poured in a bowl, then the bottle is put in the previous position. The actor then mixes the ingredients in the bowl.
 - Scene #4 The actor cuts a slice of bread and spreads some nuts cream on it, then the actor eats it.
 - Scene #5 The actor reaches a lemon and squeezes it. Then all the objects are moved away and the actor cleans the table.
 
-============
-
-**Available functions**
+####Available functions
+=======================
 Loading and visualisation functions (in MATLAB) allow users to access RGB and Kinematic streams.
 
 Functions "loadDataset" and "loadAction" allow the user to load and save the Cooking Actions Dataset in an easy-to-use data structure. 
@@ -74,8 +73,8 @@ All the functions provided can be used also on the test scenes in /data/mocap/sc
 
 Type help "name of the function" in the Command Window for more information on syntax and on how to use the functions.
 	
-REFERENCE
-=========
+####REFERENCE
+=============
 Should you use this dataset in your publication please cite the following:
 D. Malafronte, G.Goyal, A.Vignolo. F.Odone, N.Noceti. Investigating the use of space-time primitives to understand human movements. In ICIAP 2017
 
